@@ -1,4 +1,5 @@
 programa {
+  inclua biblioteca Matematica --> mat
   funcao inicio() {
     real nota, soma, media
     inteiro i
@@ -19,16 +20,21 @@ programa {
     }
 
     media = soma / 3
+    media = mat.arredondar(media , 2)
 
     escreva("\n--- Resultado Final ---")     
     escreva("\nNome : ",nomedoaluno)       
-    escreva("\nA sua média foi: ", media)
+    escreva("\nA sua média foi: ", media, "\n")
 
 
-    se (media >= 6) {
-      escreva("\nExcelente trabalho! Você foi aprovado.")
-    } senao {
-      escreva("\nInfelizmente você não atingiu a média, mas não desista!")
+    se(media>=7) {
+      escreva("Aprovado")
+    }
+      senao se(media >= 5 e media <= 6.9){
+      escreva("Recuperação")
+    }
+    senao {
+      escreva("Reprovado")
     }
   }
 }
